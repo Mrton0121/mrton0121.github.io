@@ -1,3 +1,189 @@
-body{
-  background-color: aqua;
+/* Add your CSS here */
+body {
+    background-color: #1d1f21;
+    color: #c5c8c6;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Allows absolute positioning within body */
+}
+.cat-introduction {
+    position: absolute; /* Absolute positioning */
+    top: 10px; /* Align to the top */
+    left: 10px; /* Align to the left */
+    color: #5af78e; /* Green color for text */
+    font-size: 16px; /* Font size as needed */
+}
+.typing-effect {
+    display: inline-block; /* For typing effect */
+    border-right: 2px solid #5af78e; /* Cursor-like effect */
+    animation: blink 1.2s step-end infinite; /* Cursor blinking - slower */
+    white-space: nowrap; /* Prevent line breaks */
+}
+@keyframes blink {
+    50% {
+        border-color: transparent; /* Make the cursor flash */
+    }
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack child elements */
+    height: auto; /* Allow the height to adjust based on content */
+}
+.terminal {
+    background-color: #282a2e;
+    border-radius: 5px;
+    padding: 20px;
+    width: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-top: 40px; /* Space between terminal and introduction */
+    opacity: 0; /* Hide initially */
+    transition: opacity 0.5s ease-in;
+}
+.visible {
+    opacity: 1; /* Show when prompted */
+}
+.title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.description {
+    margin: 5px 0;
+}
+.info-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+.info-list li {
+    margin: 5px 0;
+}
+.picture {
+    margin: 15px 0;
+    text-align: center;
+}
+.picture img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+.code-block {
+    background-color: #373b41;
+    border: 1px solid #c5c8c6;
+    border-radius: 3px;
+    padding: 10px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    margin-top: 10px;
+}
+.code-block code {
+    color: #5af78e; /* Green color for comments/shell commands */
+}
+.code-block .link {
+    color: #7dd3fc; /* Light blue-cyan for better visibility */
+    text-decoration: underline; /* Always underlined to show it's clickable */
+    transition: color 0.2s ease; /* Smooth color transition */
+}
+.code-block .link:hover {
+    color: #fbbf24; /* Bright yellow/orange on hover for high contrast */
+    text-decoration: underline;
+}
+.link {
+    color: #81a2be; /* Link color similar to terminal colors */
+    text-decoration: none; /* Remove underline */
+}
+.link:hover {
+    text-decoration: underline; /* Underline on hover for visibility */
+}
+.command-line {
+    display: flex;
+    align-items: center; /* Align prompt and cursor */
+    margin-top: 10px; /* Space after previous section */
+    font-size: 16px; /* Font size for command line */
+    color: #c5c8c6; /* Default text color */
+    padding-left: 10px; /* Indentation for the command line */
+}
+.prompt {
+    color: #5af78e; /* Green color for the prompt */
+    margin-right: 5px; /* Space between prompt and cursor */
+}
+.cursor {
+    display: inline-block; /* Display cursor */
+    width: 10px; /* Cursor width */
+    background-color: #5af78e; /* Cursor color */
+    animation: blink 0.7s step-end infinite; /* Cursor blinking */
+    height: 1em; /* Height consistent with text */
+    margin-left: 2px; /* Small space after prompt */
+}
+/* Hide the cursor initially */
+.hidden {
+    visibility: hidden !important; /* Hide cursor */
+}
+
+/* Terminal command output styles */
+.command-output {
+    padding-left: 10px;
+    margin-top: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #c5c8c6;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.command-output.visible {
+    opacity: 1;
+}
+
+.terminal-output {
+    background-color: transparent;
+    padding: 10px 0;
+}
+
+.file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.file-permissions {
+    color: #c5c8c6;
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.file-size {
+    color: #c5c8c6;
+    width: 60px;
+    text-align: right;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.file-date {
+    color: #c5c8c6;
+    width: 120px;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.file-link {
+    color: #81a2be; /* Same link color as other links */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.file-link:hover {
+    color: #5af78e; /* Green hover effect like terminal */
+    text-decoration: underline;
 }

@@ -1,12 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./src/index.css">
-  <title>Gombócz Márton</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gombócz Márton</title>
+    <link rel="stylesheet" href="./src/index.css">
+    <script src="./src/index.js"></script>
 </head>
-<body>
-  <h1>Hello world </h1>
+<body onload="initializePage()">
+    <span class="cat-introduction typing-effect" id="cat-command"></span>
+    <div class="container">
+        <div class="terminal" id="welcome-section">
+            <h1 class="title">Welcome</h1>
+            <p class="description">Hi, I'm <strong>Márton Gombócz</strong></p>
+            <p class="description">Here is a little about me:</p>
+            <ul class="info-list">
+                <li>👨‍💻 DevOps Engineer</li>
+                <li>🖥 Self-hoster</li>
+                <li>🎯 Amateur darts player</li>
+            </ul>
+            <div class="picture">
+                <img src="./src/profile_hd.png" alt="Profile Picture">
+            </div>
+            <p class="description">Feel free to connect with me on my social media!</p>
+            <pre class="code-block">
+<code>
+# email: <a href="mailto:contact@gomboczmarton.hu" class="link">en@gomboczmarton.hu</a>
+# git clone: <a href="https://github.com/Mrton0121" target="_blank" class="link">https://github.com/Mrton0121</a>
+</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- Command Line Now Out of the Terminal Div -->
+    <div class="command-line" id="new-command-line" style="display:none;">
+        <span class="prompt">$</span>
+        <span id="typed-space" class="typing-effect" style="color: #5af78e;"></span>
+    </div>
+
+    <!-- Pages List Output -->
+    <div class="command-output" id="pages-list" style="display:none;">
+        <div class="terminal-output">
+            <div class="file-list">
+                <div class="file-item">
+                    <span class="file-permissions">-rw-r--r--</span>
+                    <span class="file-size">2.1K</span>
+                    <span class="file-date">Aug 05 12:34</span>
+                    <a href="./homelab.html" class="file-link">homelab.html</a>
+                </div>
+                <!-- <div class="file-item">
+                    <span class="file-permissions">-rw-r--r--</span>
+                    <span class="file-size">1.8K</span>
+                    <span class="file-date">Aug 05 12:35</span>
+                    <a href="./blog.html" class="file-link">blog.html</a>
+                </div>
+                <div class="file-item">
+                    <span class="file-permissions">-rw-r--r--</span>
+                    <span class="file-size">1.3K</span>
+                    <span class="file-date">Aug 05 12:36</span>
+                    <a href="./contact.html" class="file-link">contact.html</a>
+                </div>
+                <div class="file-item">
+                    <span class="file-permissions">-rw-r--r--</span>
+                    <span class="file-size">950B</span>
+                    <span class="file-date">Aug 05 12:37</span>
+                    <a href="./resume.html" class="file-link">resume.html</a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Command Line -->
+    <div class="command-line" id="final-command-line" style="display:none;">
+        <span class="prompt">$</span>
+        <span id="final-cursor" class="typing-effect" style="color: #5af78e;"></span>
+    </div>
+
 </body>
 </html>
