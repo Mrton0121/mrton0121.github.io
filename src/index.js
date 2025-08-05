@@ -1,4 +1,78 @@
 /**
+ * Check if user is returning from a subpage or visiting for the first time
+ * @returns {boolean} - true if first visit, false if returning
+ */
+function isFirstVisit() {
+    // Check if this is a navigation back from a subpage
+    const referrer = document.referrer;
+    const currentDomain = window.location.origin;
+    
+    // If there's a referrer from the same domain, it's likely a return visit
+    if (referrer && referrer.startsWith(currentDomain)) {
+        return false;
+    }
+    
+    // Check session storage for visit tracking
+    const hasVisited = sessionStorage.getItem('hasVisitedMain');
+    if (hasVisited) {
+        return false;
+    }
+    
+    // Mark as visited for this session
+    sessionStorage.setItem('hasVisitedMain', 'true');
+    return true;
+}
+
+/**
+ * Initialize the page - with or without animation based on visit status
+ */
+function initializePage() {
+    if (isFirstVisit()) {
+        // First visit - play full animation
+        simulateTyping('cat-command');
+    } else {
+        // Return visit - show everything immediately
+        showAllContentImmediately();
+    }
+}
+
+/**
+ * Show all content immediately without animation (for return visits)
+ */
+function showAllContentImmediately() {
+    // Show the first command without typing
+    const catCommand = document.getElementById('cat-command');
+    catCommand.textContent = '$ cat introduction.html';
+    catCommand.classList.remove('typing-effect');
+    
+    // Show welcome section immediately
+    document.getElementById('welcome-section').classList.add('visible');
+    
+    // Show second command line immediately
+    document.getElementById('new-command-line').style.display = 'flex';
+    document.getElementById('new-command-line').style.visibility = 'visible';
+    
+    // Show the typed space and ls command
+    const typedSpace = document.getElementById('typed-space');
+    typedSpace.innerHTML = '&nbsp;ls pages';
+    typedSpace.classList.remove('typing-effect');
+    
+    // Show pages list immediately
+    document.getElementById('pages-list').style.display = 'block';
+    document.getElementById('pages-list').style.visibility = 'visible';
+    document.getElementById('pages-list').classList.add('visible');
+    
+    // Show final command line immediately
+    document.getElementById('final-command-line').style.display = 'flex';
+    document.getElementById('final-command-line').style.visibility = 'visible';
+    
+    // Show final cursor with space and blinking
+    const finalCursor = document.getElementById('final-cursor');
+    finalCursor.innerHTML = '&nbsp;';
+    // Keep the typing-effect class for the blinking cursor
+}
+
+/**
  * Universal typing effect function
  * @param {string} elementId - ID of the element to type into
  * @param {string} text - Text to type

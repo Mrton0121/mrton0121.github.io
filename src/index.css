@@ -78,6 +78,18 @@ body {
     white-space: pre-wrap;
     margin-top: 10px;
 }
+.code-block code {
+    color: #5af78e; /* Green color for comments/shell commands */
+}
+.code-block .link {
+    color: #7dd3fc; /* Light blue-cyan for better visibility */
+    text-decoration: underline; /* Always underlined to show it's clickable */
+    transition: color 0.2s ease; /* Smooth color transition */
+}
+.code-block .link:hover {
+    color: #fbbf24; /* Bright yellow/orange on hover for high contrast */
+    text-decoration: underline;
+}
 .link {
     color: #81a2be; /* Link color similar to terminal colors */
     text-decoration: none; /* Remove underline */
