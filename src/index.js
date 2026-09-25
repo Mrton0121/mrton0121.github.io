@@ -1,11 +1,4 @@
 function isFirstVisit() {
-    const referrer = document.referrer;
-    const currentDomain = window.location.origin;
-
-    if (referrer && referrer.startsWith(currentDomain)) {
-        return false;
-    }
-
     const hasVisited = sessionStorage.getItem('hasVisitedMain');
     if (hasVisited) {
         return false;
